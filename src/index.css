@@ -24,3 +24,9 @@ body {
 .search-row input {
   margin-right: 10px;
 }
+
+.App-header img {
+  display: flex;
+  width: 20px;
+  float: right;
+}
