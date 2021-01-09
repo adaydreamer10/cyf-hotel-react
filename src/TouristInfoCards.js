@@ -6,7 +6,7 @@ const TouristInfoCards = () => {
       <img src="..." className="card-img-top" />
       <div className="card-body">
         <a href="https://peoplemakeglasgow.com/" className="btn btn-primary">
-          Go somewhere
+          Glasgow
         </a>
       </div>
       <div className="card">
