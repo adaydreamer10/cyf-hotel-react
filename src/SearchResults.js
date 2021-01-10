@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 const SearchResults = props => {
+  const [isHighlighted, setIsHighlighted] = useState(false);
+  const highlitedRow = () => {
+    setIsHighlighted(!isHighlighted);
+  };
+
   return (
     <div>
       <table class="table">
@@ -18,7 +23,10 @@ const SearchResults = props => {
         </thead>
         <tbody>
           {props.results.map(result => (
-            <tr>
+            <tr
+              onClick={highlitedRow}
+              className={isHighlighted ? "table-danger" : ""}
+            >
               <td>{result.id}</td>
               <td>{result.title}</td>
               <td>{result.firstName}</td>
