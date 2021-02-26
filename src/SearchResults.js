@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import SearchResultRow from "./SearchResultRow";
 
 const SearchResults = props => {
-  const [isHighlighted, setIsHighlighted] = useState(false);
-  const highlitedRow = () => {
-    setIsHighlighted(!isHighlighted);
-  };
+  const rows = props.results.map((result, i) => (
+    <SearchResultRow
+      result={result}
+      onShowProfile={props.onShowProfile}
+      key={`result-${i}`}
+    />
+  ));
 
   return (
     <div>
@@ -21,23 +25,7 @@ const SearchResults = props => {
             <th scope="col">check out date</th>
           </tr>
         </thead>
-        <tbody>
-          {props.results.map(result => (
-            <tr
-              onClick={highlitedRow}
-              className={isHighlighted ? "table-danger" : ""}
-            >
-              <td>{result.id}</td>
-              <td>{result.title}</td>
-              <td>{result.firstName}</td>
-              <td>{result.surname}</td>
-              <td>{result.email}</td>
-              <td>{result.roomId}</td>
-              <td>{result.checkInDate}</td>
-              <td>{result.checkOutDate}</td>
-            </tr>
-          ))}
-        </tbody>
+        <tbody>{rows}</tbody>
       </table>
     </div>
   );
